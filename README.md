@@ -86,3 +86,8 @@
 
 - belongs_to :user
 - belongs_to :team
+
+
+## ER図
+
+![ER図](https://app.lucidchart.com/documents/view/09a6aee3-2481-4905-9b79-701dc5b7d3ef)
