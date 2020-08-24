@@ -1,0 +1,111 @@
+<div class="facilities-register-contents">
+  <header class="facilities-register-header">
+    <%= link_to 'ShareG', "/", class:'title' %>
+
+  </header>
+  <div class="facilities-register-main">
+    <h2 class="facilities-register-title">施設の情報を入力</h2>
+    <%= form_with url: '#', local: true do |f| %>
+
+    <%# render 'shared/error_messages', model: f.object %>
+
+    <%# 所在地情報 %>
+    <div class="facilities-location">
+      <div class="weight-bold-text">
+        所在地
+      </div>
+      <div class="form">
+        <div class="weight-bold-text">
+          都道府県
+          <span class="indispensable">必須</span>
+        </div>
+        <%= f.text_area :temp, class:"facilities-text", id:"facility-city", placeholder:"市区町村名（必須) 例) 大阪市中央区" %>
+        <%# f.collection_select(:prefecture_id, Prefecture.all, :id, :name, {include_blank: "---"}, {class:"select-box", id:"facility-prefecture"}) %>
+        <div class="weight-bold-text">
+          市区町村名
+          <span class="indispensable">必須</span>
+        </div>
+        <%= f.text_area :temp, class:"facilities-text", id:"facility-city", placeholder:"市区町村名（必須) 例) 大阪市中央区" %>
+      </div>
+    </div>
+    <%# /所在地情報 %>
+
+    <%# 施設情報 %>
+    <div class="new-facilities">
+      <div class="weight-bold-text">
+        施設情報
+      </div>
+      <div class="form">
+        <div class="weight-bold-text">
+          施設名
+          <span class="indispensable">必須</span>
+        </div>
+        <%= f.text_area :temp, class:"facilities-text", id:"facility-name", placeholder:"施設名（必須 30文字まで)", maxlength:"30" %>
+        <div class="weight-bold-text">
+          エリア名
+          <span class="indispensable">必須</span>
+        </div>
+        <%= f.text_area :temp, class:"facilities-text", id:"facility-area", placeholder:"エリア名（必須 30文字まで)", maxlength:"30" %>
+        <div class="weight-bold-text">
+          電話番号（問い合わせ用）
+          <span class="indispensable">必須</span>
+        </div>
+        <%= f.text_area :temp, class:"facilities-text", id:"facility-phone", placeholder:"電話番号（必須 11桁まで) 例) 0612345678", maxlength:"11" %>
+        <div class="lending-price">
+          <div class="weight-bold-text">
+            <span>単位時間価格</span>
+          </div>
+          <div>
+            <div class="price-content">
+              <div class="price-text">
+                <span>価格</span>
+                <span class="indispensable">必須</span>
+              </div>
+              <span class="lending-yen">¥</span>
+              <%= f.text_field :temp, class:"price-input", id:"lending-price", placeholder:"例）1,000" %>
+            </div>
+          </div>
+        </div>
+        <div class="facilities-explain">
+          <div class="weight-bold-text">
+            施設の説明
+            <span class="indispensable">必須</span>
+          </div>
+          <%= f.text_area :temp, class:"facilities-text", id:"facility-info", placeholder:"施設の説明（必須 1,000文字まで）（貸出時間、器具、注意点など）例）施設の貸出は30分単位です。器具の貸出は別途料金が発生します。館内飲食OKですが、貸出終了時間までに掃除をして退出してください。" ,rows:"7" ,maxlength:"1000" %>
+        </div>
+      </div>
+    </div>
+    <%# /施設情報 %>
+
+    <%# 注意書き %>
+    <div class="caution">
+      <p class="sentence">
+        <a href="#">施設貸出時の注意事項</a>
+        を必ずご確認ください。
+      </p>
+      <p class="sentence">
+        また、本システムを介しての予約トラブルは
+        一斎の責任を負い兼ねますのでご了承願います。
+      </p>
+    </div>
+    <%# /注意書き %>
+    <%# 下部ボタン %>
+    <div class="register-btn-contents">
+      <%= f.submit "登録する" ,class:"register-btn" %>
+      <%=link_to 'もどる', root_path, class:"back-btn" %>
+    </div>
+    <%# /下部ボタン %>
+  </div>
+  <% end %>
+
+  <footer class="facilities-register-footer">
+    <ul class="menu">
+      <li><a href="#">プライバシーポリシー</a></li>
+      <li><a href="#">ShareG利用規約</a></li>
+    </ul>
+    <%= link_to 'ShareG', "/",class:'title' %>
+    <p class="inc">
+      ©︎ShareG,Inc.
+    </p>
+  </footer>
+</div>
