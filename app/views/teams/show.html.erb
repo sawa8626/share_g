@@ -1,0 +1,63 @@
+<%= render "shared/header" %>
+
+<%# チーム・サークルの概要 %>
+<div class="team-show">
+  <div class="team-box">
+    <h2 class="name">
+      チーム名
+    </h2>
+    <div class='overview-content'>
+      <ul class='team-info'>
+        <li>
+          <span>活動項目：</span>
+          <%# %>
+        </li>
+        <li>
+          <%= link_to ' facebookのURL', '#', class:'facebook-url' %>
+        </li>
+        <li>
+          <%= link_to ' twitterのURL', '#', class:'twitter-url' %>
+        </li>
+        <li>
+          <%= link_to ' instagramのURL', '#', class:'instagram-url' %>
+        </li>
+      </ul>
+      <div class='team-img-content'>
+        Picture
+        <%# image_tag '#', class:"team-box-img" %>
+      </div>
+    </div>
+
+    <%# link_to '商品の編集', '#', method: :get, class: "team-red-btn" %>
+    <%# <p class='or-text'>or</p> %>
+    <%# link_to '削除', '#', method: :delete, class:'team-destroy' %>
+    <%# link_to '購入画面に進む', '#', class:"team-red-btn"%>
+
+    <div class="team-explanation-box">
+      <h3 class='explanation-title'>
+        チーム・サークルの紹介コメント
+      </h3>
+      <div class='explanation-content'>
+        <%# %>
+      </div>
+    </div>
+  </div>
+  <%# /チーム・サークルの概要 %>
+
+  <div class="comment-box">
+    <form>
+      <textarea class="comment-text"></textarea>
+      <p class="comment-warn">
+        相手のことを考え丁寧なコメントを心がけましょう。
+        <br>
+        不快な言葉遣いなどは利用制限や退会処分となることがあります。
+      </p>
+      <button type="submit" class="comment-btn">
+        <%# image_tag "comment.png" ,class:"comment-flag-icon" ,width:"20",height:"25"%>
+        <span>コメントする<span>
+      </button>
+    </form>
+  </div>
+</div>
+
+<%= render "shared/footer" %>

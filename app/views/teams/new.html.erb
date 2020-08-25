@@ -1,0 +1,98 @@
+<div class="teams-register-contents">
+  <header class="teams-register-header">
+    <%= link_to 'ShareG', "/", class:'title' %>
+  </header>
+
+  <div class="teams-register-main">
+    <h2 class="teams-register-title">チーム・サークル情報を入力</h2>
+    <%= form_with url: '#', local: true do |f| %>
+
+    <%# render 'shared/error_messages', model: f.object %>
+
+    <%# チーム名とチーム情報 %>
+    <div class="new-teams">
+      <div class="weight-bold-text">
+        チーム・サークル名
+        <span class="indispensable">必須</span>
+      </div>
+      <%= f.text_area :temp, class:"teams-text", id:"team-name", placeholder:"チーム名（必須 30文字まで)", maxlength:"30" %>
+      <div class="weight-bold-text">
+        活動項目
+        <span class="indispensable">必須</span>
+      </div>
+      <%= f.text_area :temp, class:"teams-text", id:"activity-name", placeholder:"活動項目（必須 30文字まで)", maxlength:"30" %>
+      <div class="weight-bold-text">
+        SNSアカウント
+      </div>
+      <ul class="sns-account">
+        <li>
+          <span class='facebook-url'></span>
+          <%= f.text_area :temp, class:"sns-text", placeholder:"facebookアカウントURL" %>
+        </li>
+        <li>
+          <span class='twitter-url'></span>
+          <%= f.text_area :temp, class:"sns-text", placeholder:"twitterアカウントURL" %>
+        </li>
+        <li>
+          <span class='instagram-url'></span>
+          <%= f.text_area :temp, class:"sns-text", placeholder:"instagramアカウントURL" %>
+        </li>
+      </ul>
+      <div class="teams-explain">
+        <div class="weight-bold-text">
+          チーム・サークルの紹介コメント
+          <span class="indispensable">必須</span>
+        </div>
+        <%= f.text_area :temp, class:"teams-text", id:"team-info", placeholder:"チーム・サークルの紹介コメント（必須 1,000文字まで）（チーム概要や募集条件など自由に書いてください）例）大阪市の体育館を中心に活動している男女mixバスケサークルです！メンバー募集中ですのでfacebookより連絡お待ちしています！" ,rows:"7" ,maxlength:"1000" %>
+      </div>
+    </div>
+    <%# /チーム名とチーム情報 %>
+
+    <%# チーム画像 %>
+    <div class="img-upload">
+      <div class="weight-bold-text">
+        チーム・サークル画像
+        <span class="indispensable">必須</span>
+      </div>
+      <div class="click-upload">
+        <p>
+          クリックしてファイルをアップロード
+        </p>
+        <%= f.file_field :image, id:"team-image" %>
+      </div>
+    </div>
+    <%# /チーム画像 %>
+
+
+    <%# 注意書き %>
+    <div class="caution">
+      <p class="sentence">
+        本システムを利用して発生した利用者間でのトラブルについては
+        一斎の責任を負いかねますのでご了承願います。
+      </p>
+      <p class="sentence">
+        また特定の方に対する誹謗中傷はご遠慮願います。
+        発見次第アカウントを削除させていただく場合もございます。
+      </p>
+    </div>
+    <%# /注意書き %>
+    <%# 下部ボタン %>
+    <div class="register-btn-contents">
+      <%= f.submit "登録する", class:"register-btn" %>
+      <%= link_to 'もどる', root_path, class:"back-btn" %>
+    </div>
+    <%# /下部ボタン %>
+  </div>
+  <% end %>
+
+  <footer class="teams-register-footer">
+    <ul class="menu">
+      <li><a href="#">プライバシーポリシー</a></li>
+      <li><a href="#">ShareG利用規約</a></li>
+    </ul>
+    <%= link_to 'ShareG', "/", class:'title' %>
+    <p class="inc">
+      ©︎ShareG,Inc.
+    </p>
+  </footer>
+</div>
