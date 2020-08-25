@@ -44,6 +44,16 @@ header {
   padding: 15px;
 }
 
+.current-user-name {
+  color: #202020;
+  font-weight: bold;
+}
+
+.user-session {
+  color: #4169e1;
+  font-weight: bold;
+}
+
 /*メニューバー*/
 .nav {
   width: 100vw;
