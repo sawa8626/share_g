@@ -8,10 +8,18 @@
     </div>
     <div class='header-bar-right'>
       <div class='user-name'>
-        アカウント名/新規登録
+        <% if user_signed_in? %>
+          <%= link_to current_user.nickname, '#', class:'current-user-name' %>
+        <% else %>
+          <%= link_to '新規登録', new_user_registration_path, class:'user-session' %>
+        <% end %>
       </div>
       <div class='user-status'>
-        ログイン/ログアウト
+        <% if user_signed_in? %>
+          <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class:'user-session' %>
+        <% else %>
+          <%= link_to 'ログイン', new_user_session_path, class:'user-session' %>
+        <% end %>
       </div>
     </div>
   </div>
