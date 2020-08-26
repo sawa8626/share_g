@@ -5,7 +5,7 @@
   </header>
   <div class="facilities-register-main">
     <h2 class="facilities-register-title">施設の情報を入力</h2>
-    <%= form_with url: '#', local: true do |f| %>
+    <%= form_with model: @facility, url: facilities_path, local: true do |f| %>
 
     <%# render 'shared/error_messages', model: f.object %>
 
@@ -24,7 +24,7 @@
           市区町村名
           <span class="indispensable">必須</span>
         </div>
-        <%= f.text_area :temp, class:"facilities-text", id:"facility-city", placeholder:"市区町村名（必須) 例) 大阪市中央区" %>
+        <%= f.text_area :city, class:"facilities-text", id:"facility-city", placeholder:"市区町村名（必須) 例) 大阪市中央区" %>
       </div>
     </div>
     <%# /所在地情報 %>
@@ -39,17 +39,17 @@
           施設名
           <span class="indispensable">必須</span>
         </div>
-        <%= f.text_area :temp, class:"facilities-text", id:"facility-name", placeholder:"施設名（必須 30文字まで)", maxlength:"30" %>
+        <%= f.text_area :name, class:"facilities-text", id:"facility-name", placeholder:"施設名（必須 30文字まで)", maxlength:"30" %>
         <div class="weight-bold-text">
           エリア名
           <span class="indispensable">必須</span>
         </div>
-        <%= f.text_area :temp, class:"facilities-text", id:"facility-area", placeholder:"エリア名（必須 30文字まで)", maxlength:"30" %>
+        <%= f.text_area :area, class:"facilities-text", id:"facility-area", placeholder:"エリア名（必須 30文字まで)", maxlength:"30" %>
         <div class="weight-bold-text">
           電話番号（問い合わせ用）
           <span class="indispensable">必須</span>
         </div>
-        <%= f.text_area :temp, class:"facilities-text", id:"facility-phone", placeholder:"電話番号（必須 11桁まで) 例) 0612345678", maxlength:"11" %>
+        <%= f.text_area :phone_number, class:"facilities-text", id:"facility-phone", placeholder:"電話番号（必須 11桁まで) 例) 0612345678", maxlength:"11" %>
         <div class="lending-price">
           <div class="weight-bold-text">
             <span>単位時間価格</span>
@@ -61,7 +61,7 @@
                 <span class="indispensable">必須</span>
               </div>
               <span class="lending-yen">¥</span>
-              <%= f.text_field :temp, class:"price-input", id:"lending-price", placeholder:"例）1,000" %>
+              <%= f.text_field :price, class:"price-input", id:"lending-price", placeholder:"例）1,000" %>
             </div>
           </div>
         </div>
@@ -70,7 +70,7 @@
             施設の説明
             <span class="indispensable">必須</span>
           </div>
-          <%= f.text_area :temp, class:"facilities-text", id:"facility-info", placeholder:"施設の説明（必須 1,000文字まで）（貸出時間、器具、注意点など）例）施設の貸出は30分単位です。器具の貸出は別途料金が発生します。館内飲食OKですが、貸出終了時間までに掃除をして退出してください。" ,rows:"7" ,maxlength:"1000" %>
+          <%= f.text_area :rule, class:"facilities-text", id:"facility-info", placeholder:"施設の説明（必須 1,000文字まで）（貸出時間、器具、注意点など）例）施設の貸出は30分単位です。器具の貸出は別途料金が発生します。館内飲食OKですが、貸出終了時間までに掃除をして退出してください。" ,rows:"7" ,maxlength:"1000" %>
         </div>
       </div>
     </div>
