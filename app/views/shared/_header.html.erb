@@ -28,8 +28,14 @@
       <ul>
         <li class=”current”><a href=”#”>TOP</a></li>
         <li><a href=”#”>施設を探す</a></li>
-        <li><a href=”#”>チーム作成</a></li>
-        <li><a href=”#”>チームページ</a></li>
+        <% if user_signed_in? && current_user.admin %>
+          <li>
+            <%=link_to '施設を登録する', new_facility_path %>
+          </li>
+        <% else %>
+          <li><a href=”#”>チーム作成</a></li>
+          <li><a href=”#”>チームページ</a></li>
+        <% end %>
       </ul>
     </nav>
   </div>

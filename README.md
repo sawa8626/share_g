@@ -27,7 +27,7 @@
 | Column        | Type       | Options                        |
 | ------------- | ---------- | ------------------------------ |
 | prefecture_id | integer    | null: false                    |
-| city_id       | integer    | null: false                    |
+| city          | string     | null: false                    |
 | name          | string     | null: false                    |
 | area          | string     | null: false                    |
 | rule          | text       |                                |
