@@ -19,8 +19,7 @@
           都道府県
           <span class="indispensable">必須</span>
         </div>
-        <%= f.text_area :temp, class:"facilities-text", id:"facility-city", placeholder:"市区町村名（必須) 例) 大阪市中央区" %>
-        <%# f.collection_select(:prefecture_id, Prefecture.all, :id, :name, {include_blank: "---"}, {class:"select-box", id:"facility-prefecture"}) %>
+        <%= f.collection_select(:prefecture_id, Prefecture.all, :id, :name, {include_blank: "---"}, {class:"select-box", id:"facility-prefecture"}) %>
         <div class="weight-bold-text">
           市区町村名
           <span class="indispensable">必須</span>
