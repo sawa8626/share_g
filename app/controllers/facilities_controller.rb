@@ -2,6 +2,8 @@ class FacilitiesController < ApplicationController
   before_action :move_to_root, except: [:index]
 
   def index
+    @facility = Facility.new
+    @facilities = Facility.none
   end
 
   def new
@@ -15,6 +17,11 @@ class FacilitiesController < ApplicationController
     else
       render action: :new
     end 
+  end
+
+  def post_json
+    facilities = Facility.where(prefecture_id: params[:id]).select(:city).distinct
+    render json: { cities: facilities }
   end
 
   private
