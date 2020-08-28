@@ -58,7 +58,11 @@
         <div class='weight-bold-text'>
           市区町村
         </div>
-        <%= f.select(:city, @facilities, {include_blank: "---"}, {class:"select-box", id:"facility-city"}) %>
+        <%= f.select(:city, @temp_data, {include_blank: "---"}, {class:"select-box", id:"facility-city"}) %>
+        <div class='weight-bold-text'>
+          施設名
+        </div>
+        <%= f.select(:name, @temp_data, {include_blank: "---"}, {class:"select-box", id:"facility-name"}) %>
       <% end %>
     </div>
   </div>

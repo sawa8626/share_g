@@ -1,9 +1,10 @@
 class FacilitiesController < ApplicationController
-  before_action :move_to_root, except: [:index]
+  skip_before_action :verify_authenticity_token
+  before_action :move_to_root, except: [:index, :post_json_city, :post_json_name]
 
   def index
     @facility = Facility.new
-    @facilities = Facility.none
+    @temp_data = Facility.none
   end
 
   def new
@@ -19,9 +20,16 @@ class FacilitiesController < ApplicationController
     end 
   end
 
-  def post_json
-    facilities = Facility.where(prefecture_id: params[:id]).select(:city).distinct
-    render json: { cities: facilities }
+  def post_json_city
+    post_data = request.body.read
+    cities = Facility.where(prefecture_id: post_data).select(:city).distinct
+    render json: { cities: cities }
+  end
+
+  def post_json_name
+    post_data = request.body.read
+    names = Facility.where(city: post_data).select(:name).distinct
+    render json: { names: names }
   end
 
   private
