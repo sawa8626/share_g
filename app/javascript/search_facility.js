@@ -1,4 +1,4 @@
-function getData() {
+function getCity() {
   const prefecture = document.getElementById('facility-prefecture');
   prefecture.addEventListener('change', (e) => {
     const prefectureSelect = prefecture.value;
@@ -35,4 +35,4 @@ function getData() {
   });
 };
 
-window.addEventListener('DOMContentLoaded', getData);
+window.addEventListener('DOMContentLoaded', getCity);
