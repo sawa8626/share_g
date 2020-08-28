@@ -1,6 +1,6 @@
 class FacilitiesController < ApplicationController
   skip_before_action :verify_authenticity_token
-  before_action :move_to_root, except: [:index, :post_json_city, :post_json_name]
+  before_action :move_to_root, except: [:index, :post_json_city, :post_json_name, :post_json_area]
 
   def index
     @facility = Facility.new
@@ -30,6 +30,12 @@ class FacilitiesController < ApplicationController
     post_data = request.body.read
     names = Facility.where(city: post_data).select(:name).distinct
     render json: { names: names }
+  end
+
+  def post_json_area
+    post_data = request.body.read
+    areas = Facility.where(name: post_data).select(:area).distinct
+    render json: { areas: areas }
   end
 
   private

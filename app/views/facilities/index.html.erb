@@ -63,6 +63,10 @@
           施設名
         </div>
         <%= f.select(:name, @temp_data, {include_blank: "---"}, {class:"select-box", id:"facility-name"}) %>
+        <div class='weight-bold-text'>
+          エリア名
+        </div>
+        <%= f.select(:area, @temp_data, {include_blank: "---"}, {class:"select-box", id:"facility-area"}) %>
       <% end %>
     </div>
   </div>

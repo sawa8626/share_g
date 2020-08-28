@@ -1,6 +1,6 @@
 function getCity() {
   const prefecture = document.getElementById('facility-prefecture');
-  prefecture.addEventListener('change', (e) => {
+  prefecture.addEventListener('change', () => {
     const prefectureSelect = prefecture.value;
     const XHR = new XMLHttpRequest();
     XHR.open('POST', '/facilities/prefecture', true);
@@ -16,7 +16,7 @@ function getCity() {
           cityOption.value = e.city;
           citySelect.appendChild(cityOption);
         });
-        prefecture.addEventListener('change', (e) => {
+        prefecture.addEventListener('change', () => {
           cities.forEach(function(e, index) {
             let citySelect = document.getElementById('facility-city');
             citySelect.remove((index + 1));
@@ -37,7 +37,7 @@ function getCity() {
 
 function getName() {
   const city = document.getElementById('facility-city');
-  city.addEventListener('change', (e) => {
+  city.addEventListener('change', () => {
     const citySelect = city.value;
     const XHR = new XMLHttpRequest();
     XHR.open('POST', `/facilities/city`, true);
@@ -54,13 +54,13 @@ function getName() {
           nameOption.value = e.name;
           nameSelect.appendChild(nameOption);
         });
-        prefecture.addEventListener('change', (e) => {
+        prefecture.addEventListener('change', () => {
           names.forEach(function(e, index) {
             let nameSelect = document.getElementById('facility-name');
             nameSelect.remove((index + 1));
           });
         });
-        city.addEventListener('change', (e) => {
+        city.addEventListener('change', () => {
           names.forEach(function(e, index) {
             let nameSelect = document.getElementById('facility-name');
             nameSelect.remove((index + 1));
@@ -79,5 +79,57 @@ function getName() {
   });
 };
 
+function getArea() {
+  const name = document.getElementById('facility-name');
+  name.addEventListener('change', () => {
+    const nameSelect = name.value;
+    const XHR = new XMLHttpRequest();
+    XHR.open('POST', `/facilities/name`, true);
+    XHR.responseType = 'json';
+    XHR.send(nameSelect);
+    XHR.onload = () => {
+      const areas = XHR.response.areas;
+      const prefecture = document.getElementById('facility-prefecture');
+      const city = document.getElementById('facility-city');
+      if (XHR.status == 200) {
+        areas.forEach(e => {
+          let areaSelect = document.getElementById('facility-area');
+          let areaOption = document.createElement('option');
+          areaOption.text = e.area;
+          areaOption.value = e.area;
+          areaSelect.appendChild(areaOption);
+        });
+        prefecture.addEventListener('change', () => {
+          areas.forEach(function(e, index) {
+            let areaSelect = document.getElementById('facility-area');
+            areaSelect.remove((index + 1));
+          });
+        });
+        city.addEventListener('change', () => {
+          areas.forEach(function(e, index) {
+            let areaSelect = document.getElementById('facility-area');
+            areaSelect.remove((index + 1));
+          });
+        });
+        name.addEventListener('change', () => {
+          areas.forEach(function(e, index) {
+            let areaSelect = document.getElementById('facility-area');
+            areaSelect.remove((index + 1));
+          });
+        });
+      }
+      if (XHR.status != 200) {
+        alert(`Error ${XHR.status}: ${XHR.statusText}`);
+      } else {
+        return null;
+      }
+    };
+    XHR.onerror = () => {
+      alert("Request failed");
+    };
+  });
+};
+
 window.addEventListener('DOMContentLoaded', getCity);
 window.addEventListener('DOMContentLoaded', getName);
+window.addEventListener('DOMContentLoaded', getArea);
