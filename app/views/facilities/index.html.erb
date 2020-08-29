@@ -47,15 +47,30 @@
 
   <div class='search-facilities'>
     <h4 class='search-title'>
-      施設一覧
+      施設検索
     </h4>
     <div class='search-content'>
-      <%# form_with '#', do |f| %>
+      <%= form_for @facility do |f| %>
         <div class='weight-bold-text'>
           都道府県
         </div>
-        <%# f.collection_select(, , , , {include_blank: "---"}, {class:"select-box", id:"item-prefecture"}) %>
-      <%# end %>
+        <%= f.collection_select(:prefecture_id, Prefecture.all, :id, :name, {include_blank: "---"}, {class:"select-box-index", id:"facility-prefecture"}) %>
+        <div class='weight-bold-text'>
+          市区町村
+        </div>
+        <%= f.select(:city, @temp_data, {include_blank: "---"}, {class:"select-box-index", id:"facility-city"}) %>
+        <div class='weight-bold-text'>
+          施設名
+        </div>
+        <%= f.select(:name, @temp_data, {include_blank: "---"}, {class:"select-box-index", id:"facility-name"}) %>
+        <div class='weight-bold-text'>
+          エリア名
+        </div>
+        <%= f.select(:area, @temp_data, {include_blank: "---"}, {class:"select-box-index", id:"facility-area"}) %>
+      <% end %>
+      <div class='search-btn-contents'>
+      <%= link_to '予約カレンダーへ', "/", class:'search-btn', id:'search-facility' %>
+      </div>
     </div>
   </div>
 </div>

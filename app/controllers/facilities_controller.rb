@@ -2,6 +2,8 @@ class FacilitiesController < ApplicationController
   before_action :move_to_root, except: [:index]
 
   def index
+    @facility = Facility.new
+    @temp_data = Facility.none
   end
 
   def new
