@@ -149,7 +149,7 @@ function putLink() {
         if (XHR.status == 200) {
           const facilityId = XHR.response.facility_id[0].id;
           const btn = document.getElementById('search-facility');
-          btn.href = `/facilities/${facilityId}`
+          btn.href = `/facilities/${facilityId}/reservations`
         }
         if (XHR.status != 200) {
           alert(`Error ${XHR.status}: ${XHR.statusText}`);
