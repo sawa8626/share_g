@@ -1,5 +1,6 @@
 class Facility < ApplicationRecord
   belongs_to :user
+  has_many :reservations
 
   with_options presence: true do
     validates :prefecture_id
