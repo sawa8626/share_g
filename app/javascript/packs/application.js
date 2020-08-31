@@ -7,7 +7,15 @@ require("@rails/ujs").start()
 // require("turbolinks").start()
 require("@rails/activestorage").start()
 require("channels")
-require("../search_facility")
+require('fullcalendar')
+require("javascripts/search_facility")
+require("core/main.js")
+require("core/main.min.js")
+require("core/main.css")
+require("core/main.min.css")
+// require("javascripts/ja")
+require("javascripts/calendar")
+require("stylesheets/calendar")
 
 
 // Uncomment to copy all static images under ../images to the output folder and reference
