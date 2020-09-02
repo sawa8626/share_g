@@ -46,8 +46,8 @@
 
 | Column          | Type       | Options                        |
 | --------------- | ---------- | ------------------------------ |
-| start_time      | time       | null: false                    |
-| end_time        | time       | null: false                    |
+| start_time      | datetime   | null: false                    |
+| end_time        | datetime   | null: false                    |
 | use_application | string     | null: false                    |
 | release         | boolean    | null: false, default: false    |
 | facility        | references | null: false, foreign_key: true |

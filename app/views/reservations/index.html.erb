@@ -1,4 +1,17 @@
-<h1>
-<%# %>予約カレンダー
+<h1 class='calendar-title'>
+<%= "#{@facility.name} / #{@facility.area}" %>予約カレンダー
 </h1>
+
+<div class='other-area'>
+  <% @facilities.each do |facility| %>
+    <% unless @facility.id == facility.id %>
+      <%= link_to "#{facility.area}", facility_reservations_path(facility.id), class:'other-area-url' %>
+    <% end %>
+  <% end %>
+</div>
+
 <div id='calendar'></div>
+
+<div class='move-reservation-btn-content'>
+  <%= link_to '予約画面へ', new_facility_reservation_path(params[:facility_id]), class:'move-reservation-btn' %>
+</div>
