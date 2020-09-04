@@ -7,7 +7,7 @@
     <h2 class="reservations-register-title">予約情報を入力</h2>
     <%= form_with model: @reservation, url: facility_reservations_path(params[:facility_id]), local: true do |f| %>
 
-    <%# render 'shared/error_messages', model: f.object %>
+    <%= render 'shared/error_messages', model: f.object %>
 
     <%# 予約情報 %>
     <div class="reservation-info">
@@ -24,7 +24,7 @@
           終了日時
           <span class="indispensable">必須</span>
         </div>
-        <%= f.datetime_local_field :end_time, class:"reservation-text", id:"reservation-end-time" %>
+        <%= f.datetime_field :end_time, class:"reservation-text", id:"reservation-end-time" %>
         <div class="weight-bold-text">
           利用目的
           <span class="indispensable">必須</span>
