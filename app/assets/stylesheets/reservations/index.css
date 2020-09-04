@@ -1,0 +1,33 @@
+.calendar-title {
+  height: 10vh;
+  width: 100vw;
+  font-weight: bold;
+  font-size: 25px;
+}
+
+.other-area {
+  width: 100vw;
+}
+
+.other-area-url {
+  color: royalblue;
+  margin: 5px;
+}
+
+.move-reservation-btn-content {
+  height: 5vh;
+  width: 100vw;
+  text-align: center;
+  margin-top: 3vh;
+}
+
+.move-reservation-btn {
+  text-decoration: none;
+  color: #202020;
+  font-size: 25px;
+  font-weight: bold;
+}
+
+.move-reservation-btn:hover {
+  border-bottom: 5px solid #ff6347;
+}

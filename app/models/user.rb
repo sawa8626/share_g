@@ -5,6 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :facilities
+  has_many :reservations
 
   with_options presence: true do
     validates :nickname

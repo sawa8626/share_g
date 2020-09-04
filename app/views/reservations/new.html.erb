@@ -1,0 +1,72 @@
+<div class="reservations-register-contents">
+  <header class="reservations-register-header">
+    <%= link_to 'ShareG', "/", class:'title' %>
+
+  </header>
+  <div class="reservations-register-main">
+    <h2 class="reservations-register-title">予約情報を入力</h2>
+    <%= form_with model: @reservation, url: facility_reservations_path(params[:facility_id]), local: true do |f| %>
+
+    <%= render 'shared/error_messages', model: f.object %>
+
+    <%# 予約情報 %>
+    <div class="reservation-info">
+      <div class="weight-bold-text">
+        予約情報
+      </div>
+      <div class="form">
+        <div class="weight-bold-text">
+          開始日時
+          <span class="indispensable">必須</span>
+        </div>
+        <%= f.datetime_field :start_time, class:"reservation-text", id:"reservation-start-time" %>
+        <div class="weight-bold-text">
+          終了日時
+          <span class="indispensable">必須</span>
+        </div>
+        <%= f.datetime_field :end_time, class:"reservation-text", id:"reservation-end-time" %>
+        <div class="weight-bold-text">
+          利用目的
+          <span class="indispensable">必須</span>
+        </div>
+        <%= f.text_area :use_application, class:"reservation-text", id:"reservation-use-application", placeholder:"利用目的（必須）例）バスケットボール" %>
+        <div class="weight-bold-text">
+          チーム情報の公開：
+          <%= f.check_box :release, {}, 'true', 'false' %>
+        </div>
+      </div>
+    </div>
+    <%# /予約情報 %>
+
+    <%# 注意書き %>
+    <div class="caution">
+      <p class="sentence">
+        <a href="#">施設予約時の注意事項</a>
+        を必ずご確認ください。
+      </p>
+      <p class="sentence">
+        また、本システムを介しての予約トラブルは
+        一斎の責任を負い兼ねますのでご了承願います。
+      </p>
+    </div>
+    <%# /注意書き %>
+    <%# 下部ボタン %>
+    <div class="reserve-btn-contents">
+      <%= f.submit "登録する" ,class:"reserve-btn" %>
+      <%=link_to 'もどる', facility_reservations_path(params[:facility_id]), class:"back-btn" %>
+    </div>
+    <%# /下部ボタン %>
+  </div>
+  <% end %>
+
+  <footer class="reservations-register-footer">
+    <ul class="menu">
+      <li><a href="#">プライバシーポリシー</a></li>
+      <li><a href="#">ShareG利用規約</a></li>
+    </ul>
+    <%= link_to 'ShareG', "/",class:'title' %>
+    <p class="inc">
+      ©︎ShareG,Inc.
+    </p>
+  </footer>
+</div>
