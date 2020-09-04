@@ -1,5 +1,5 @@
 class JsonsController < ApplicationController
-  skip_before_action :verify_authenticity_token
+  skip_before_action :verify_authenticity_token, exclude: [:get_reservations]
 
   def post_city
     post_data = request.body.read
@@ -24,5 +24,16 @@ class JsonsController < ApplicationController
     hash = JSON.parse(post_data)
     facility_id = Facility.where(name: hash["name"], area: hash["area"])
     render json: { facility_id: facility_id }
+  end
+
+  def get_reservations
+    reservations = Reservation.where(facility_id: params[:facility_id])
+    json_reservations = []
+    i = 0
+    reservations.each do |e|
+      json_reservations[i] = { title: e[:use_application], start: e[:start_time].strftime('%Y-%m-%dT%H:%M'), end: e[:end_time].strftime('%Y-%m-%dT%H:%M'), overrap: false }
+      i += 1
+    end
+    render json: json_reservations
   end
 end
