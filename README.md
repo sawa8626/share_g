@@ -62,13 +62,15 @@
 
 ## teams テーブル
 
-| Column   | Type       | Options     |
-| -------- | ---------- | ----------- |
-| name     | string     | null: false |
-| activity | string     | null: false |
-| image    | string     | null: false |
-| sns_url  | string     |             |
-| content  | text       | null: false |
+| Column        | Type   | Options     |
+| ------------- | ------ | ----------- |
+| name          | string | null: false |
+| activity      | string | null: false |
+| image         | string | null: false |
+| twitter_url   | string |             |
+| facebook_url  | string |             |
+| instagram_url | string |             |
+| content       | text   | null: false |
 
 ### Association
 
