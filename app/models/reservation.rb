@@ -1,6 +1,7 @@
 class Reservation < ApplicationRecord
   belongs_to :facility
   belongs_to :user
+  belongs_to :team
 
   with_options presence: true do
     validates :use_application
