@@ -33,7 +33,9 @@
             <%=link_to '施設を登録する', new_facility_path %>
           </li>
         <% else %>
-          <li><a href=”#”>チーム作成</a></li>
+          <li>
+            <%= link_to 'チーム作成', new_team_path %>
+          </li>
           <li><a href=”#”>チームページ</a></li>
         <% end %>
       </ul>

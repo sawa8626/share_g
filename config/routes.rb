@@ -6,6 +6,9 @@ Rails.application.routes.draw do
     resources :reservations, only: [:index, :new, :create]
     get '/reservations/get', to: 'jsons#get_reservations'
   end
+  resources :teams, only: [:new, :create]
+
+  # Root for JSON
   post '/facilities/prefecture', to: 'jsons#post_city'
   post '/facilities/city', to: 'jsons#post_name'
   post '/facilities/name', to: 'jsons#post_area'
