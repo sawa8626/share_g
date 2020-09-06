@@ -6,6 +6,8 @@ class User < ApplicationRecord
 
   has_many :facilities
   has_many :reservations
+  has_many :team_users
+  has_many :teams, through: :team_users
 
   with_options presence: true do
     validates :nickname
