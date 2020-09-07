@@ -4,27 +4,26 @@
 <div class="team-show">
   <div class="team-box">
     <h2 class="name">
-      チーム名
+      <%= @team.name %>
     </h2>
     <div class='overview-content'>
       <ul class='team-info'>
         <li>
-          <span>活動項目：</span>
-          <%# %>
+          <span>活動内容：</span>
+          <%= @team.activity %>
         </li>
         <li>
-          <%= link_to ' facebookのURL', '#', class:'facebook-url' %>
+          <%= link_to " #{@team.facebook_url}", @team.facebook_url, class:'facebook-url' %>
         </li>
         <li>
-          <%= link_to ' twitterのURL', '#', class:'twitter-url' %>
+          <%= link_to " #{@team.twitter_url}", @team.twitter_url, class:'twitter-url' %>
         </li>
         <li>
-          <%= link_to ' instagramのURL', '#', class:'instagram-url' %>
+          <%= link_to " #{@team.twitter_url}", @team.instagram_url, class:'instagram-url' %>
         </li>
       </ul>
       <div class='team-img-content'>
-        Picture
-        <%# image_tag '#', class:"team-box-img" %>
+        <%= image_tag @team.image, class:"team-box-img" %>
       </div>
     </div>
 
@@ -38,7 +37,7 @@
         チーム・サークルの紹介コメント
       </h3>
       <div class='explanation-content'>
-        <%# %>
+        <%= @team.content %>
       </div>
     </div>
   </div>

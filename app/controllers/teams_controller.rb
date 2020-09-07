@@ -1,5 +1,5 @@
 class TeamsController < ApplicationController
-  before_action :move_to_session
+  before_action :move_to_session, except: [:show]
 
   def new
     @team = Team.new
@@ -13,6 +13,10 @@ class TeamsController < ApplicationController
     else
       render action: :new
     end
+  end
+
+  def show
+    @team = Team.find(params[:id])
   end
 
   private

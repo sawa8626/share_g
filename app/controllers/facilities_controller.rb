@@ -2,6 +2,7 @@ class FacilitiesController < ApplicationController
   before_action :move_to_root, except: [:index]
 
   def index
+    (@user_teams = User.find(current_user.id).teams) if user_signed_in?
     @facility = Facility.new
     @temp_data = Facility.none
   end
