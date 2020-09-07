@@ -32,6 +32,11 @@ class TeamsController < ApplicationController
     end
   end
 
+  def destroy
+    @team = Team.find(params[:id])
+    redirect_to root_path if @team.destroy
+  end
+
   private
 
   def move_to_session

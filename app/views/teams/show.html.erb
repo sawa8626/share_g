@@ -37,8 +37,8 @@
     </div>
     <% if @team.users.ids.include?(current_user.id) %>
       <%= link_to 'チーム情報の編集', edit_team_path(@team.id), method: :get, class: "team-red-btn" %>
-      <%# <p class='or-text'>or</p> %>
-      <%# link_to '削除', '#', method: :delete, class:'team-destroy' %>
+      <p class='or-text'>or</p>
+      <%= link_to '削除', team_path(@team.id), method: :delete, class:'team-destroy' %>
     <% end %>
   </div>
   <%# /チーム・サークルの概要 %>
