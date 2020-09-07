@@ -19,6 +19,19 @@ class TeamsController < ApplicationController
     @team = Team.find(params[:id])
   end
 
+  def edit
+    @team = Team.find(params[:id])
+  end
+
+  def update
+    @team = Team.find(params[:id])
+    if @team.update(team_params)
+      render action: :show
+    else
+      render action: :edit
+    end
+  end
+
   private
 
   def move_to_session
