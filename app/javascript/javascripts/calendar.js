@@ -9,33 +9,35 @@ document.addEventListener('DOMContentLoaded', function() {
 
   var calendarEl = document.getElementById('calendar');
 
-  var calendar = new Calendar(calendarEl, {
-    plugins: [ interactionPlugin, dayGridPlugin, timeGridPlugin, listPlugin ],
-    locale: 'ja',
-    navLinks: true,
-    selectable: true,
-    nowIndicator: true,
-    slotDuration: '00:15:00',
-    slotMinTime: '06:00:00',
+  if(document.URL.match(/reservations/)) {
+    var calendar = new Calendar(calendarEl, {
+      plugins: [ interactionPlugin, dayGridPlugin, timeGridPlugin, listPlugin ],
+      locale: 'ja',
+      navLinks: true,
+      selectable: true,
+      nowIndicator: true,
+      slotDuration: '00:15:00',
+      slotMinTime: '06:00:00',
 
-    slotLabelFormat: {
-      hour: '2-digit',
-      minute: '2-digit'
-    },
+      slotLabelFormat: {
+        hour: '2-digit',
+        minute: '2-digit'
+      },
 
-    eventTimeFormat: {
-      hour: '2-digit',
-      minute: '2-digit'
-    },
+      eventTimeFormat: {
+        hour: '2-digit',
+        minute: '2-digit'
+      },
 
-    headerToolbar: {
-      left: 'prev,next',
-      center: 'title',
-      right: 'today dayGridMonth,timeGridWeek,timeGridDay',
-    },
+      headerToolbar: {
+        left: 'prev,next',
+        center: 'title',
+        right: 'today dayGridMonth,timeGridWeek,timeGridDay',
+      },
 
-    events: `${pathname}/get`
-  });
+      events: `${pathname}/get`
+    });
+    calendar.render();
+  }
 
-  calendar.render();
 });

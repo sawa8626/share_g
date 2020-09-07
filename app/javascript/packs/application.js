@@ -14,7 +14,6 @@ require("core/main.js")
 require("core/main.min.js")
 require("core/main.css")
 require("core/main.min.css")
-// require("javascripts/ja")
 require("javascripts/calendar")
 require("stylesheets/calendar")
 

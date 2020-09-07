@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  get 'reservations/index'
   devise_for :users
   root to: 'facilities#index'
   resources :facilities, only: [:index, :new, :create] do
