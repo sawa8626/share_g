@@ -21,7 +21,7 @@
 </div>
 
 <div class='other-area'>
-  <h2 class='other-area-title'>他のエリア</h2>
+  <h2 class='other-area-title'>・他のエリア</h2>
   <% @facilities.each do |facility| %>
     <% unless @facility.id == facility.id %>
       <%= link_to "#{facility.area}", facility_reservations_path(facility.id), class:'other-area-url' %>
