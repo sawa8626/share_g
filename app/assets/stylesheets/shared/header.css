@@ -61,33 +61,58 @@ header {
   background-color: #f8f8f8;
 }
 
-.nav ul {
+nav ul {
   height: 100%;
   display: table;
   margin: 0 auto;
   padding-top: 15px;
   width: 80%;
   text-align: center;
-  }
+}
 
-  .nav li {
+nav li {
   display: table-cell;
   min-width: 50px;
-  }
+}
 
-  .nav a {
+nav a {
   display: block;
   width: 100%;
   text-decoration: none;
   color: #202020;
   padding-bottom: 5px;
-  }
+}
 
-  .nav li.current {
+nav li.current {
   border-bottom: 3px solid #92D050;
-  }
+}
 
-  .nav li:hover {
-  color: #E7DA66;
+nav li:hover {
   border-bottom: 3px solid #191970;
-  }
+}
+
+.team-select {
+  position: relative;
+}
+
+.hidden-lists {
+  display: none;
+  width: 27vw;
+  position: absolute;
+  z-index: 1;
+  right: 7vw;
+}
+
+.hidden-list {
+  color: #f8f8f8;
+  background-color: #696969;
+  width: 100%;
+  height: 3vh;
+  border-top: solid 1px #f8f8f8;
+  border-radius: 10px;
+}
+
+.hidden-list>a {
+  color: #f8f8f8;
+  padding: 15px;
+}

@@ -1,17 +1,41 @@
 .calendar-title {
-  height: 10vh;
+  height: 6vh;
   width: 100vw;
   font-weight: bold;
   font-size: 25px;
 }
 
+.font-weight-bold {
+  font-weight: bold;
+}
+
+.facility-info {
+  margin: 5px;
+}
+
+.facility-phone {
+  display: flex;
+  margin-bottom: 3px;
+}
+
+.reservation-price {
+  display: flex;
+  margin-bottom: 3px;
+}
+
+
 .other-area {
   width: 100vw;
+  margin: 5px;
+}
+
+.other-area-title {
+  font-weight: bold;
 }
 
 .other-area-url {
   color: royalblue;
-  margin: 5px;
+  margin: 10px;
 }
 
 .move-reservation-btn-content {

@@ -1,8 +1,27 @@
+<%= render "shared/header" %>
 <h1 class='calendar-title'>
 <%= "#{@facility.name} / #{@facility.area}" %>予約カレンダー
 </h1>
 
+<div class='facility-info'>
+  <ul>
+    <li class='facility-phone'>
+      <p class='font-weight-bold'>・電話番号：</p>
+      <%= @facility.phone_number %>
+    </li>
+    <li class='reservation-price'>
+      <p class='font-weight-bold'>・単位時間価格：</p>
+      <p><%= @facility.price %> 円</p> 
+    </li>
+    <li class='facility-explanation'>
+      <p class='font-weight-bold'>・施設説明事項：</p>
+      <%= "　#{@facility.rule}" %>
+    </li>
+  </ul>
+</div>
+
 <div class='other-area'>
+  <h2 class='other-area-title'>他のエリア</h2>
   <% @facilities.each do |facility| %>
     <% unless @facility.id == facility.id %>
       <%= link_to "#{facility.area}", facility_reservations_path(facility.id), class:'other-area-url' %>

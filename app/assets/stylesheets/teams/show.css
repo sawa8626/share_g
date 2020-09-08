@@ -11,7 +11,7 @@
 
 .team-box {
   background-color: #FFF;
-  width: 70vw;
+  width: 80vw;
   min-width: 600px;
   padding: 10vh 15vw;
   display: flex;
@@ -72,16 +72,16 @@
 .instagram-url::before  { background-color: #125688; content: "\f16d"; }
 
 .team-img-content {
-  width: 40%;
-  border: solid;
+  width: 50%;
 }
 
 .team-box-img {
   height: 30vh;
-  width: 40vw;
-  min-height: 500px;
-  background-color: rgb(205, 202, 202);
+  width: 20vw;
+  min-height: 250px;
+  background-color: #fff;
   object-fit: contain;
+  float: right;
 }
 
 .team-explanation-box {

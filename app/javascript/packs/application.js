@@ -8,14 +8,15 @@ require("@rails/ujs").start()
 require("@rails/activestorage").start()
 require("channels")
 require('fullcalendar')
+require("javascripts/select_team_top")
 require("javascripts/search_facility")
 require("core/main.js")
 require("core/main.min.js")
 require("core/main.css")
 require("core/main.min.css")
-// require("javascripts/ja")
 require("javascripts/calendar")
 require("stylesheets/calendar")
+require("javascripts/select_team_reserve")
 
 
 // Uncomment to copy all static images under ../images to the output folder and reference

@@ -7,7 +7,7 @@
     <h2 class="facilities-register-title">施設の情報を入力</h2>
     <%= form_with model: @facility, url: facilities_path, local: true do |f| %>
 
-    <%# render 'shared/error_messages', model: f.object %>
+    <%= render 'shared/error_messages', model: f.object %>
 
     <%# 所在地情報 %>
     <div class="facilities-location">

@@ -25,20 +25,33 @@
   </div>
   <div class='nav'>
     <nav>
-      <ul>
-        <li class=”current”><a href=”#”>TOP</a></li>
-        <li><a href=”#”>施設を探す</a></li>
+      <ul class='nav-lists'>
+        <li class=”current”>
+          <%= link_to 'TOP', root_path %>
+        </li>
+        <li>
+          <%= link_to '施設を探す', root_path(anchor: 'search-facility') %>
+        </li>
         <% if user_signed_in? && current_user.admin %>
           <li>
             <%=link_to '施設を登録する', new_facility_path %>
           </li>
-        <% else %>
+        <% elsif user_signed_in? %>
           <li>
             <%= link_to 'チーム作成', new_team_path %>
           </li>
-          <li><a href=”#”>チームページ</a></li>
+          <li class='team-select' id='team-select'>チームページ</li>
         <% end %>
       </ul>
     </nav>
+    <% if user_signed_in? && (@user_teams != nil) %>
+      <ul class='hidden-lists' id='hidden-lists'>
+        <% @user_teams.each do |team| %>
+          <li class='hidden-list'>
+            <%= link_to "#{team.name}", team_path(team.id) %>
+          </li>
+        <% end %>
+      </ul>
+    <% end %>
   </div>
 </header>

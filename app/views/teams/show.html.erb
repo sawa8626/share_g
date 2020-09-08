@@ -4,43 +4,42 @@
 <div class="team-show">
   <div class="team-box">
     <h2 class="name">
-      チーム名
+      <%= @team.name %>
     </h2>
     <div class='overview-content'>
       <ul class='team-info'>
         <li>
-          <span>活動項目：</span>
-          <%# %>
+          <span>活動内容：</span>
+          <%= @team.activity %>
         </li>
         <li>
-          <%= link_to ' facebookのURL', '#', class:'facebook-url' %>
+          <%= link_to " #{@team.facebook_url}", @team.facebook_url, class:'facebook-url' %>
         </li>
         <li>
-          <%= link_to ' twitterのURL', '#', class:'twitter-url' %>
+          <%= link_to " #{@team.twitter_url}", @team.twitter_url, class:'twitter-url' %>
         </li>
         <li>
-          <%= link_to ' instagramのURL', '#', class:'instagram-url' %>
+          <%= link_to " #{@team.twitter_url}", @team.instagram_url, class:'instagram-url' %>
         </li>
       </ul>
       <div class='team-img-content'>
-        Picture
-        <%# image_tag '#', class:"team-box-img" %>
+        <%= image_tag @team.image, class:"team-box-img" %>
       </div>
     </div>
-
-    <%# link_to '商品の編集', '#', method: :get, class: "team-red-btn" %>
-    <%# <p class='or-text'>or</p> %>
-    <%# link_to '削除', '#', method: :delete, class:'team-destroy' %>
-    <%# link_to '購入画面に進む', '#', class:"team-red-btn"%>
 
     <div class="team-explanation-box">
       <h3 class='explanation-title'>
         チーム・サークルの紹介コメント
       </h3>
       <div class='explanation-content'>
-        <%# %>
+        <%= @team.content %>
       </div>
     </div>
+    <% if @team.users.ids.include?(current_user.id) %>
+      <%= link_to 'チーム情報の編集', edit_team_path(@team.id), method: :get, class: "team-red-btn" %>
+      <p class='or-text'>or</p>
+      <%= link_to '削除', team_path(@team.id), method: :delete, class:'team-destroy' %>
+    <% end %>
   </div>
   <%# /チーム・サークルの概要 %>
 

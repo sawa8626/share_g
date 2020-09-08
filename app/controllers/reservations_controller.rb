@@ -8,6 +8,7 @@ class ReservationsController < ApplicationController
 
   def new
     @reservation = Reservation.new
+    @user_teams = User.find(current_user.id).teams
   end
 
   def create
@@ -30,6 +31,6 @@ class ReservationsController < ApplicationController
   end
 
   def reservation_params
-    params.require(:reservation).permit(:start_time, :end_time, :use_application, :release).merge(user_id: current_user.id, facility_id: params[:facility_id])
+    params.require(:reservation).permit(:start_time, :end_time, :use_application, :release, :team_id).merge(user_id: current_user.id, facility_id: params[:facility_id])
   end
 end

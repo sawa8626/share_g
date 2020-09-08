@@ -1,7 +1,7 @@
 /* border-bottom: 1px solid #eee; */
 
 
-.reservations-register-contents {
+.teams-register-contents {
   background-color: #f5f5f5;
   font-family: "Source Sans Pro", Helvetica, Arial, "æ¸¸ã‚´ã‚·ãƒƒã‚¯ä½“", "YuGothic", "ãƒ¡ã‚¤ãƒªã‚ª", "Meiryo", sans-serif;
   font-size: 14px;
@@ -11,7 +11,7 @@
   min-width: 500px;
 }
 
-.reservations-register-header {
+.teams-register-header {
   padding: 5vh 0;
   text-align: center;
 }
@@ -22,14 +22,14 @@
   font-size: 4vh;
 }
 
-.reservations-register-main {
+.teams-register-main {
   background-color: #FFF;
   width: 70vw;
   min-width: 450px;
   padding: 10vh 15vw;
 }
 
-.reservations-register-title {
+.teams-register-title {
   font-size: 22px;
   font-weight: bold;
   text-align: center;
@@ -49,7 +49,6 @@
 .weight-bold-text {
   font-weight: bold;
   min-width: 170px;
-  margin-top: 10px;
   margin-bottom: 10px;
 }
 
@@ -61,16 +60,12 @@
 }
 /* /共通 */
 
-/* 予約情報 */
-.reservation-info {
+/* チーム名とチーム情報 */
+.new-teams {
   padding: 2vh 0;
 }
 
-.select-box {
-  margin: 2vh 0;
-}
-
-.reservation-text {
+.teams-text {
   width: 100%;
   padding: 16px 16px 8px;
   border-radius: 4px;
@@ -79,10 +74,80 @@
   resize: none;
 }
 
-.hidden-select {
-  display: none;
+.teams-explain {
+  margin-top: 2vh;
 }
-/* /予約情報 */
+/* /チーム名とチーム情報 */
+
+/* SNSリンク */
+.sns-text {
+  width: 100%;
+  padding: 16px 16px 8px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+  resize: none;
+}
+
+.sns-account {
+  list-style: none;
+  margin: 0 0 -8px;
+  overflow: hidden;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.sns-account li {
+  float: left;
+  margin: 0 8px 8px 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+}
+
+.sns-account li ::before {
+  -webkit-border-radius: 2px;
+  border-radius: 2px;
+  color: #fff;
+  display: inline-block;
+  font-family: FontAwesome;
+  font-size: 16px;
+  height: 60px; /* Button height */
+  line-height: 60px; /* Button height */
+  -webkit-transition: all .3s ease;
+  transition: all .3s ease;
+  text-align: center;
+  width: 60px; /* Button width */
+  margin-right: 20px;
+}
+
+/* .sns-account li a:hover::before {
+  opacity: 0.7;
+} */
+
+.facebook-url::before   { background-color: #3b5998; content: "\f09a"; }
+.twitter-url::before    { background-color: #55acee; content: "\f099"; }
+.instagram-url::before  { background-color: #125688; content: "\f16d"; }
+/* SNSリンク */
+
+/* チーム・サークル画像 */
+.img-upload {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  padding: 2vh 0;
+}
+
+.click-upload {
+  margin: 15px 0;
+  min-width: 250px;
+}
+
+.click-upload>p {
+  margin-bottom: 15px;
+}
+/* /チーム・サークル画像 */
 
 /* 注意書き */
 .caution {
@@ -97,12 +162,12 @@
 /* /注意書き */
 
 /* 下部ボタン */
-.reserve-btn-contents {
+.register-btn-contents {
   width: 100%;
   text-align: center;
 }
 
-.reserve-btn {
+.register-btn {
   background: #ea352d;
   border: 1px solid #ea352d;
   color: #fff;
@@ -121,7 +186,7 @@
 }
 /* /下部ボタン */
 
-.reservations-register-footer {
+.teams-register-footer {
   background-color: #f5f5f5;
   width: 60vw;
   padding: 3ch 0;
@@ -131,7 +196,7 @@
 }
 
 
-.reservations-register-footer>.menu {
+.teams-register-footer>.menu {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
