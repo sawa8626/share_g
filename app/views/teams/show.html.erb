@@ -3,9 +3,18 @@
 <%# チーム・サークルの概要 %>
 <div class="team-show">
   <div class="team-box">
-    <h2 class="name">
-      <%= @team.name %>
-    </h2>
+    <div class='team-box-header'>
+      <h2 class="name">
+        <%= @team.name %>
+      </h2>
+      <div class='my-team-content'>
+        <% if user_signed_in? && (@user_teams.include?(@team) == false) %>
+          <%= link_to 'マイチームに追加', team_user_path(params[:id]), method: :patch, class:'submit-btn' %>
+        <% elsif user_signed_in? && (@user_teams.include?(@team)) %>
+          <%= link_to 'マイチーム解除', team_user_path(params[:id]), method: :delete, class:'submit-btn' %>
+        <% end %>
+      </div>
+    </div>
     <div class='overview-content'>
       <ul class='team-info'>
         <li>
@@ -43,20 +52,20 @@
   </div>
   <%# /チーム・サークルの概要 %>
 
-  <div class="comment-box">
-    <form>
-      <textarea class="comment-text"></textarea>
-      <p class="comment-warn">
-        相手のことを考え丁寧なコメントを心がけましょう。
-        <br>
-        不快な言葉遣いなどは利用制限や退会処分となることがあります。
-      </p>
-      <button type="submit" class="comment-btn">
+  <%# <div class="comment-box"> %>
+    <%# <form> %>
+      <%# <textarea class="comment-text"></textarea> %>
+      <%# <p class="comment-warn"> %>
+        <%# 相手のことを考え丁寧なコメントを心がけましょう。 %>
+        <%# <br> %>
+        <%# 不快な言葉遣いなどは利用制限や退会処分となることがあります。 %>
+      <%# </p> %>
+      <%# <button type="submit" class="comment-btn"> %>
         <%# image_tag "comment.png" ,class:"comment-flag-icon" ,width:"20",height:"25"%>
-        <span>コメントする<span>
-      </button>
-    </form>
-  </div>
+        <%# <span>コメントする<span> %>
+      <%# </button> %>
+    <%# </form> %>
+  <%# </div> %>
 </div>
 
 <%= render "shared/footer" %>
