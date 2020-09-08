@@ -32,7 +32,11 @@
         <%= f.text_area :use_application, class:"reservation-text", id:"reservation-use-application", placeholder:"利用目的（必須）例）バスケットボール" %>
         <div class="weight-bold-text">
           チーム情報の公開：
-          <%= f.check_box :release, {}, 'true', 'false' %>
+          <%= f.check_box :release, { id: 'release-box' }, 'true', 'false' %>
+        </div>
+        <div class="weight-bold-text hidden-select" id="hidden-select">
+          <p>公開するチームの選択</p>
+          <%= f.collection_select(:team_id, @user_teams, :id, :name, {include_blank: "---"}, {class:"select-box"})%>
         </div>
       </div>
     </div>
