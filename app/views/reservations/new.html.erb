@@ -36,7 +36,7 @@
         </div>
         <div class="weight-bold-text hidden-select" id="hidden-select">
           <p>公開するチームの選択</p>
-          <%= f.collection_select(:team_id, @user_teams, :id, :name, {include_blank: "---"}, {class:"select-box"})%>
+          <%= f.collection_select(:team_id, User.find(current_user.id).teams, :id, :name, {include_blank: "---"}, {class:"select-box"})%>
         </div>
       </div>
     </div>
