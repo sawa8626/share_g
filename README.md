@@ -1,6 +1,18 @@
-# README
+# ShareG
 
-# テーブル設計
+# 概要
+
+# 本番環境（デプロイ先、テストアカウントとID）
+
+# 制作背景
+
+# DEMO
+
+# 使用技術（開発環境）
+
+# 課題や今後実装したい機能
+
+# DB設計
 
 ## users テーブル
 
@@ -92,4 +104,4 @@
 
 ## ER図
 
-[ER図](https://app.lucidchart.com/documents/view/09a6aee3-2481-4905-9b79-701dc5b7d3ef)
+![ER図](./public/images/shareg_erdraw.png)
