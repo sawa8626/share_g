@@ -72,7 +72,6 @@ FullCalendarを利用することで非同期的にmonthly,weekly,dailyのカレ
 ## 予約情報へのサークルページ連携機能
 予約時にチーム情報の公開を選択することで、カレンダー上の予約をクリックしてチームページに遷移することが可能です。<br>
 <br>
-## 予約情報へのサークルページ連携機能
 ![サークル連携](./public/images/link_reservation_and_team.gif)
 <br>
 <br>
