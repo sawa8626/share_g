@@ -27,6 +27,7 @@ class TeamsController < ApplicationController
   def update
     @team = Team.find(params[:id])
     if @team.update(team_params)
+      @user_teams = User.find(current_user.id).teams
       render action: :show
     else
       render action: :edit
