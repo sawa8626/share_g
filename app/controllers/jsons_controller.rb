@@ -1,5 +1,5 @@
 class JsonsController < ApplicationController
-  skip_before_action :verify_authenticity_token, exclude: [:get_reservations]
+  skip_before_action :verify_authenticity_token, except: [:get_reservations]
 
   def post_city
     post_data = request.body.read
@@ -29,24 +29,8 @@ class JsonsController < ApplicationController
   def get_reservations
     reservations = Reservation.where(facility_id: params[:facility_id])
     json_reservations = []
-    i = 0
-    reservations.each do |e|
-      json_reservations[i] = { title: e[:use_application], start: e[:start_time].strftime('%Y-%m-%dT%H:%M'), end: e[:end_time].strftime('%Y-%m-%dT%H:%M'), overrap: false }
-      if current_user.admin
-        if e.release
-          json_reservations[i][:url] = team_path(e.team_id)
-          json_reservations[i][:title] = "#{e[:use_application]} [チーム公開中] チーム名：#{e.team.name} TEL：#{e.user.phone_number}"
-        else
-          json_reservations[i][:title] = "#{e[:use_application]} TEL：#{e.user.phone_number}"
-        end
-      else
-        if e.release
-          json_reservations[i][:url] = team_path(e.team_id)
-          json_reservations[i][:title] = "#{e[:use_application]} [チーム公開中] チーム名：#{e.team.name}"
-        end
-      end
-      i += 1
-    end
+    user_admin = current_user.admin
+    Reservation.get_reservations_by_facility(reservations, json_reservations, user_admin)
     render json: json_reservations
   end
 end
