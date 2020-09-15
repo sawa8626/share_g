@@ -1,5 +1,6 @@
 class TeamsController < ApplicationController
   before_action :move_to_session, except: [:show]
+  before_action :find_team, only: [:show, :edit, :destroy]
 
   def new
     @team = Team.new
@@ -16,12 +17,10 @@ class TeamsController < ApplicationController
   end
 
   def show
-    @team = Team.find(params[:id])
     @user_teams = User.find(current_user.id).teams
   end
 
   def edit
-    @team = Team.find(params[:id])
   end
 
   def update
@@ -35,7 +34,6 @@ class TeamsController < ApplicationController
   end
 
   def destroy
-    @team = Team.find(params[:id])
     redirect_to root_path if @team.destroy
   end
 
@@ -47,5 +45,9 @@ class TeamsController < ApplicationController
 
   def team_params
     params.require(:team).permit(:name, :activity, :twitter_url, :facebook_url, :instagram_url, :content, :image)
+  end
+
+  def find_team
+    @team = Team.find(params[:id])
   end
 end
