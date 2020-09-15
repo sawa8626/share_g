@@ -12,6 +12,7 @@
 # 本番環境
 ## 本番環境
 [https://share-g.herokuapp.com/](https://share-g.herokuapp.com/)<br>
+#### ※登録している施設数が少ないため、施設を検索する際は、大阪府から選定いただくようお願いします。
 <br>
 
 ## テストアカウント
