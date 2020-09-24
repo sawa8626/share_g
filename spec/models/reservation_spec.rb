@@ -1,4 +1,5 @@
 require 'rails_helper'
+require './config/routes.rb'
 
 RSpec.describe Reservation, type: :model do
   describe '予約機能' do
@@ -10,7 +11,6 @@ RSpec.describe Reservation, type: :model do
       context 'チーム情報を連携する場合' do
         it '全ての値が正しく入力され、チームが選択されていれば登録できること' do
           @reservation.release = true
-          @reservation.team_id = 1
           expect(@reservation).to be_valid
         end
       end
