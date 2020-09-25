@@ -5,19 +5,18 @@ RSpec.describe Reservation, type: :model do
   describe '予約機能' do
     before do
       @reservation = FactoryBot.build(:reservation)
+      @reservation_release = FactoryBot.build(:reservation, :release)
     end
 
     context '正常に登録できる場合' do
       context 'チーム情報を連携する場合' do
         it '全ての値が正しく入力され、チームが選択されていれば登録できること' do
-          @reservation.release = true
-          expect(@reservation).to be_valid
+          expect(@reservation_release).to be_valid
         end
       end
 
       context 'チーム情報を連携しない場合' do
         it '全ての値が正しく入力されていれば、チームが選択されていなくても登録できること' do
-          @reservation.release = false
           @reservation.team_id = nil
           expect(@reservation).to be_valid
         end
