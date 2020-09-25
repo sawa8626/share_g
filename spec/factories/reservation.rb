@@ -11,5 +11,9 @@ FactoryBot.define do
     trait :release do
       release { true }
     end
+
+    trait :none do
+      use_application { '' }
+    end
   end
 end
