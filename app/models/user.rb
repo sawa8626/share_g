@@ -18,7 +18,7 @@ class User < ApplicationRecord
     validates :phone_number, length: { maximum:11 }
   end
   
-  validates :admin, inclusion: { in: [false] }
+  validates :admin, inclusion: { in: [false, true] }
   validates :email, format: { with: /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i, message: 'need to include @' }
   PASSWORD_REGEX = /\A(?=.*?[a-z])(?=.*?[\d])[a-z\d]+\z/i.freeze
   validates_format_of :password, with: PASSWORD_REGEX, message: 'include both letters and numbers'
