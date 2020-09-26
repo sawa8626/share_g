@@ -29,7 +29,11 @@ class JsonsController < ApplicationController
   def get_reservations
     reservations = Reservation.where(facility_id: params[:facility_id])
     json_reservations = []
-    user_admin = current_user.admin
+    if user_signed_in?
+      user_admin = current_user.admin
+    else
+      user_admin = false
+    end
     Reservation.get_reservations_by_facility(reservations, json_reservations, user_admin)
     render json: json_reservations
   end
