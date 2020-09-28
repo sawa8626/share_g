@@ -8,5 +8,9 @@ FactoryBot.define do
     phone_number  { Faker::Number.leading_zero_number(digits: 11) }
     price         { 1000 }
     association :user
+
+    trait :none do
+      area { '' }
+    end
   end
 end

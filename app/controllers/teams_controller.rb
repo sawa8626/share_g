@@ -1,5 +1,6 @@
 class TeamsController < ApplicationController
   before_action :move_to_session, except: [:show]
+  before_action :move_to_root, only: [:edit, :update, :destroy]
   before_action :find_team, only: [:show, :edit, :destroy]
 
   def new
@@ -17,7 +18,9 @@ class TeamsController < ApplicationController
   end
 
   def show
-    @user_teams = User.find(current_user.id).teams
+    if user_signed_in?
+      @user_teams = User.find(current_user.id).teams
+    end
   end
 
   def edit
@@ -41,6 +44,10 @@ class TeamsController < ApplicationController
 
   def move_to_session
     redirect_to new_user_session_path unless user_signed_in?
+  end
+
+  def move_to_root
+    redirect_to root_path unless (current_user.teams.ids.include?(params[:id].to_i))
   end
 
   def team_params

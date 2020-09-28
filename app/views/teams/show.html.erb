@@ -7,13 +7,15 @@
       <h2 class="name">
         <%= @team.name %>
       </h2>
-      <div class='my-team-content'>
-        <% if user_signed_in? && (@user_teams.include?(@team) == false) %>
-          <%= link_to 'マイチームに追加', team_user_path(params[:id]), method: :patch, class:'submit-btn' %>
-        <% elsif user_signed_in? && (@user_teams.include?(@team)) %>
-          <%= link_to 'マイチーム解除', team_user_path(params[:id]), method: :delete, class:'submit-btn' %>
-        <% end %>
-      </div>
+      <% if user_signed_in? %>
+        <div class='my-team-content'>
+          <% if (@user_teams.include?(@team) == false) %>
+            <%= link_to 'マイチームに追加', team_user_path(params[:id]), method: :patch, class:'submit-btn' %>
+          <% elsif (@user_teams.include?(@team)) %>
+            <%= link_to 'マイチーム解除', team_user_path(params[:id]), method: :delete, class:'submit-btn' %>
+          <% end %>
+        </div>
+      <% end %>
     </div>
     <div class='overview-content'>
       <ul class='team-info'>
@@ -44,7 +46,7 @@
         <%= @team.content %>
       </div>
     </div>
-    <% if @team.users.ids.include?(current_user.id) %>
+    <% if user_signed_in? && @team.users.ids.include?(current_user.id) %>
       <%= link_to 'チーム情報の編集', edit_team_path(@team.id), method: :get, class: "team-red-btn" %>
       <p class='or-text'>or</p>
       <%= link_to '削除', team_path(@team.id), method: :delete, class:'team-destroy' %>

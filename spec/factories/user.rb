@@ -11,5 +11,9 @@ FactoryBot.define do
     last_name_kana { 'テストタロウデス' }
     phone_number { Faker::Number.leading_zero_number(digits: 10) }
     admin { false }
+
+    trait :admin do
+      admin { true }
+    end
   end
 end
